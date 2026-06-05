@@ -16,3 +16,5 @@ secrets/
 .env.*
 backend/.env
 backend/.env.*
+
+InternOps/
