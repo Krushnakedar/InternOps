@@ -76,9 +76,13 @@ function getProviderOrder() {
 }
 
 function getCacheKey(payload) {
+  const cacheInput = {
+    userId: payload.userId,
+    messages: payload.messages,
+  };
   return crypto
     .createHash('sha256')
-    .update(JSON.stringify(payload))
+    .update(JSON.stringify(cacheInput))
     .digest('hex');
 }
 
@@ -393,9 +397,9 @@ const providerRegistry = {
   },
 };
 
-async function generateAIResponse({ messages }) {
-  const payload = { messages };
-  const cached = await getCachedResponse(payload);
+async function generateAIResponse({ userId, messages }) {
+  const payload = { userId, messages };
+  const cached = getCachedResponse(payload);
 
   if (cached) {
     return {
