@@ -8,9 +8,8 @@ const metrics = require('./utils/metrics');
 const { initializeWebSocket } = require('./websocket');
 
 const app = Fastify({
-  trustProxy: config.nodeEnv === 'production'
-  ? [config.trustedProxyCidr]
-  : 'loopback',
+  trustProxy:
+    config.nodeEnv === 'production' ? [config.trustedProxyCidr] : 'loopback',
   logger:
     config.nodeEnv === 'development'
       ? { transport: { target: 'pino-pretty' } }
