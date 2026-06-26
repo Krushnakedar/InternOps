@@ -62,7 +62,7 @@ const useAuthStore = create((set, get) => ({
   logout: () => {
     safeSet('accessToken', null);
     safeSet('user', null);
-    clearCsrfToken(); 
+    clearCsrfToken();
     set({ accessToken: null, user: null });
   },
 }));
