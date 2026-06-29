@@ -22,7 +22,8 @@ function timeAgo(d) {
 
 export default function Notifications() {
   const queryClient = useQueryClient();
-  className = 'text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700';
+  const [page, setPage] = useState(1);
+  // className = 'text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700';
 
   const { data, isLoading } = useQuery({
     queryKey: ['notifications', page],
